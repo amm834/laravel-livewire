@@ -13,7 +13,7 @@ class ProductList extends Component
     use WithPagination;
 
     public string $searchTerm = '';
-    public int|null $selectedCategoryId = null;
+    public mixed $selectedCategoryId = '';
     public mixed $categories;
 
     public function mount()
@@ -26,7 +26,7 @@ class ProductList extends Component
 
         $products = Product::with('category')
             ->when($this->searchTerm !== '', fn(Builder $builder) => $builder->where('name', 'like', '%' . $this->searchTerm . '%'))
-            ->when($this->selectedCategoryId !== null, fn(Builder $builder) => $builder->where('category_id', $this->selectedCategoryId))
+            ->when($this->selectedCategoryId !== '', fn(Builder $builder) => $builder->where('category_id', $this->selectedCategoryId))
             ->paginate(10, '*', 'productPage');
 
         return view('livewire.product-list', compact('products'));
