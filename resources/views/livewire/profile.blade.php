@@ -16,6 +16,18 @@
                 </div>
             </div>
         @endif
+
+        <div class="mb-4">
+            <button type="button" wire:click="$toggle('showHelp')"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                Show Help
+            </button>
+
+            @if($showHelp)
+                <livewire:message/>
+            @endif
+        </div>
+
         <div class="mb-6">
             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
             <input

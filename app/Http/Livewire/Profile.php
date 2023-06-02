@@ -11,7 +11,8 @@ class Profile extends Component
     public string $email;
     public bool $isSuccess = false;
     public User $user;
-    public  int $userId;
+    public int $userId;
+    public bool $showHelp = false;
 
     protected $rules = [
         'user.name' => 'required|min:3',
@@ -40,5 +41,10 @@ class Profile extends Component
     public function render()
     {
         return view('livewire.profile');
+    }
+
+    public function toggleShowHelp()
+    {
+        $this->showHelp = !$this->showHelp;
     }
 }
