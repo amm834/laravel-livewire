@@ -23,8 +23,9 @@ class ProductList extends Component
 
     public function render()
     {
+
         $products = Product::with('category')
-            ->when($this->searchTerm !== '', fn(Builder $builder) => $builder->where('name', 'like', "%" . $this->searchTerm . "%"))
+            ->when($this->searchTerm !== '', fn(Builder $builder) => $builder->where('name', 'like', '%' . $this->searchTerm . '%'))
             ->when($this->selectedCategoryId !== null, fn(Builder $builder) => $builder->where('category_id', $this->selectedCategoryId))
             ->paginate(10, '*', 'productPage');
 
