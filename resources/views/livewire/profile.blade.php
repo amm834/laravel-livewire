@@ -1,6 +1,5 @@
 <div class="grid gap-x-8 grid-cols-2">
     {{-- The Master doesn't talk, he acts. --}}
-
     <form wire:submit.prevent="updateUserInfo">
         @if($isSuccess)
             <div class="flex p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"

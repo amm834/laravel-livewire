@@ -14,7 +14,9 @@
                 </div>
 
                 <div class="p-6 text-gray-900">
-                   <livewire:profile/>
+                    <livewire:profile
+                        userId="2"
+                    />
                 </div>
 
             </div>

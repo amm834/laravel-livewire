@@ -11,6 +11,7 @@ class Profile extends Component
     public string $email;
     public bool $isSuccess = false;
     public User $user;
+    public  int $userId;
 
     protected $rules = [
         'user.name' => 'required|min:3',
