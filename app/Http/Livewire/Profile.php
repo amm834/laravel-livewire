@@ -22,12 +22,19 @@ class Profile extends Component
         $this->user = auth()->user();
     }
 
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function updateUserInfo(): void
     {
         $validatedData = $this->validate();
         $this->user->save();
         $this->isSuccess = true;
     }
+
 
     public function render()
     {
