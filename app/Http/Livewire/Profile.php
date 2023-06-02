@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Profile extends Component
@@ -9,22 +10,22 @@ class Profile extends Component
     public string $name;
     public string $email;
     public bool $isSuccess = false;
+    public User $user;
 
     protected $rules = [
-        'name' => 'required|min:3',
-        'email' => 'required|email'
+        'user.name' => 'required|min:3',
+        'user.email' => 'required|email'
     ];
 
     public function mount()
     {
-        $this->name = auth()->user()->name;
-        $this->email = auth()->user()->email;
+        $this->user = auth()->user();
     }
 
     public function updateUserInfo(): void
     {
         $validatedData = $this->validate();
-        auth()->user()->update($validatedData);
+        $this->user->save();
         $this->isSuccess = true;
     }
 
