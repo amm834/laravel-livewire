@@ -19,10 +19,10 @@
                 <label class="sr-only" for="categories">Categories</label>
                 <select id="categories"
                         wire:model="selectedCategoryId"
-                        class="bg-gray-50 border border-gray-300 p-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected disabled>Choose a category</option>
                     @foreach($categories as $category )
-                        <option  value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -46,6 +46,12 @@
             </tr>
             </thead>
             <tbody>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" wire:loading>
+                <th scope="row" colspan="4"
+                    class="px-6 text-center py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                   Loading 😵‍💫
+                </th>
+            </tr>
             @forelse($products as $product)
                 <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
