@@ -31,4 +31,9 @@ class ProductList extends Component
 
         return view('livewire.product-list', compact('products'));
     }
+
+    public function deleteProduct(Product $product)
+    {
+        return $product->delete();
+    }
 }

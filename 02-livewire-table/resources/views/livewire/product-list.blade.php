@@ -64,7 +64,10 @@
                         {{ $product->price }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                        <a
+                            onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                            wire:click="deleteProduct('{{ $product->id }}')"
+                            href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
                     </td>
                     <td class="px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
